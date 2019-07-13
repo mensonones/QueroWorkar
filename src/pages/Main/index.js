@@ -8,17 +8,17 @@ import { Container, Title, List } from './styles';
 export default function Home() {
   const [vagas, setVagas] = useState([]);
 
-  useEffect(() => {
-    function loadData() {
-      try {
-        const response = fetch('https://vagasqw.herokuapp.com/')
-          .then(res => res.json())
-          .then(dados => setVagas(dados));
-        console.log(response);
-      } catch (err) {
-        console.log(err);
-      }
+  function loadData() {
+    try {
+      const response = fetch('https://vagasqw.herokuapp.com/')
+        .then(res => res.json())
+        .then(dados => setVagas(dados));
+    } catch (err) {
+      console.log(err);
     }
+  }
+
+  useEffect(() => {
     loadData();
   }, []);
 
@@ -44,6 +44,8 @@ export default function Home() {
       <List
         keyboardShouldPersistTaps="handled"
         data={vagas}
+        onEndReached={loadData}
+        onEndReachedThreshold={0.1}
         keyExtractor={item => String(item.title_job)}
         renderItem={({ item }) => <Job data={item} />}
       />

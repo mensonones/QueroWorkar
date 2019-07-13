@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { Image } from 'react-native';
+import { Image, Modal, View } from 'react-native';
+
+import WVDetailtJob from '~/components/WebViews/JobDetail/index';
 
 import {
   Container,
@@ -8,10 +10,13 @@ import {
   Description,
   Details,
   Detail,
-  DetailExtra
+  DetailExtra,
+  BtnMd,
+  BtnMdText
 } from './styles';
 
 export default function Job({ data }) {
+  const [modalDetailJob, setModalDetailJob] = useState(false);
   return (
     <Container>
       <Name>{data.title_job}</Name>
@@ -33,6 +38,22 @@ export default function Job({ data }) {
           <DetailExtra>{data.data_job}</DetailExtra>
         </Detail>
       </Details>
+
+      <Modal
+        animationType="slide"
+        transparent={false}
+        visible={modalDetailJob}
+        onRequestClose={() => {
+          setModalDetailJob(!modalDetailJob);
+        }}
+      >
+        <WVDetailtJob data={data} />
+      </Modal>
+
+      <BtnMd onPress={() => setModalDetailJob(!modalDetailJob)}>
+        <Icon name="eye" color="#333" size={16} />
+        <BtnMdText>Ver detalhes</BtnMdText>
+      </BtnMd>
     </Container>
   );
 }

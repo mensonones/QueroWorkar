@@ -47,3 +47,15 @@ export const FavoritarText = styled.Text`
   color: #000;
   margin-left: 5px;
 `;
+
+export const BtnMd = styled.TouchableOpacity`
+  margin-top: 20px;
+  flex-direction: row;
+`;
+
+export const BtnMdText = styled.Text`
+  font-size: 14px;
+  font-weight: bold;
+  color: #22272b;
+  margin-left: 5px;
+`;

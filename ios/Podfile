@@ -32,6 +32,10 @@ target 'QueroWorkar' do
 
   pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
 
+  pod 'react-native-webview', :path => '../node_modules/react-native-webview'
+
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
   target 'QueroWorkarTests' do
     inherit! :search_paths
     # Pods for testing
