@@ -25,8 +25,9 @@ export default function Home() {
   if (vagas.length === 0) {
     return (
       <Container>
+        <Title>QueroWorkar</Title>
         <ActivityIndicator
-          color="#333" // color of your choice
+          color="#333"
           size="large"
           style={{
             flex: 1,
