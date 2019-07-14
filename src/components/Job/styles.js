@@ -1,24 +1,35 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
-  padding: 20px;
+  width: 100%;
+  padding: 30px;
+  justify-content: center;
+  align-items: center;
   border-radius: 4px;
-  background: #fff;
+  background: #e7eaf6;
+  box-shadow: 1px 1px 1px #404354;
   margin-bottom: 15px;
+  shadow-radius: 1;
+  elevation: 1;
 `;
 
-export const Name = styled.Text`
-  font-size: 18px;
+export const TituloJob = styled.Text`
+  align-content: center;
+  font-size: 22px;
   font-weight: bold;
-  color: #333;
+  color: #38598b;
+  text-align: center;
 `;
 
-export const Description = styled.Text.attrs({
+export const Empresa = styled.Text.attrs({
   numberOfLines: 2
 })`
-  color: #666;
-  margin-top: 5px;
+  color: #38598b;
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 16px;
   line-height: 20px;
+  text-align: center;
 `;
 
 export const Details = styled.View`
@@ -32,30 +43,47 @@ export const Detail = styled.View`
   margin-right: 15px;
 `;
 
-export const DetailExtra = styled.Text`
+export const TipoVaga = styled.Text`
+  border: 2px solid #7fbf7f;
+  border-radius: 5px;
+  width: 110;
+  text-align: center;
+  background-color: #e7eaf6;
   margin-left: 6px;
-`;
-
-export const Favoritar = styled.TouchableOpacity`
-  margin-top: 20px;
-  flex-direction: row;
-`;
-
-export const FavoritarText = styled.Text`
-  font-size: 14px;
   font-weight: bold;
-  color: #000;
-  margin-left: 5px;
+  color: #7fbf7f;
+`;
+
+export const TipoEstagio = styled.Text`
+  border: 2px solid #ffb732;
+  border-radius: 5px;
+  width: 110;
+  text-align: center;
+  background-color: #e7eaf6;
+  margin-left: 6px;
+  font-weight: bold;
+  color: #ffb732;
+`;
+
+export const DataJob = styled.Text`
+  margin-top: 15px;
+  width: 150;
+  text-align: center;
+  background-color: #e7eaf6;
+  margin-left: 6px;
+  font-weight: bold;
+  color: #38598b;
 `;
 
 export const BtnMd = styled.TouchableOpacity`
+  width: 150;
+  border-radius: 2px;
   margin-top: 20px;
   flex-direction: row;
 `;
 
 export const BtnMdText = styled.Text`
   font-size: 14px;
-  font-weight: bold;
-  color: #22272b;
+  color: #38598b;
   margin-left: 5px;
 `;

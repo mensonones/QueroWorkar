@@ -6,11 +6,13 @@ import WVDetailtJob from '~/components/WebViews/JobDetail/index';
 
 import {
   Container,
-  Name,
-  Description,
+  TituloJob,
+  Empresa,
   Details,
   Detail,
-  DetailExtra,
+  TipoVaga,
+  TipoEstagio,
+  DataJob,
   BtnMd,
   BtnMdText
 } from './styles';
@@ -18,42 +20,79 @@ import {
 export default function Job({ data }) {
   const [modalDetailJob, setModalDetailJob] = useState(false);
   return (
-    <Container>
-      <Name>{data.title_job}</Name>
-      <Image
-        style={{ width: 100, height: 100 }}
-        source={{
-          uri: data.url_logo_empresa
-        }}
-      />
-      <Description>{data.empresa}</Description>
+    <View
+      style={{
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'stretch'
+      }}
+    >
+      <Container>
+        <View
+          style={{
+            flex: 2,
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
+        >
+          <Image
+            style={{ width: 100, height: 100 }}
+            source={{
+              uri: data.url_logo_empresa
+            }}
+          />
+          <TituloJob style={{ fontFamily: 'Quicksand' }}>
+            {data.title_job}
+          </TituloJob>
+        </View>
+        <Empresa style={{ fontFamily: 'Quicksand' }}>{data.empresa}</Empresa>
+        <Details>
+          <Detail>
+            {data.contratacao === 'Estágio' ? (
+              <TipoEstagio style={{ fontFamily: 'Quicksand' }}>
+                {data.contratacao}
+              </TipoEstagio>
+            ) : (
+              <TipoVaga style={{ fontFamily: 'Quicksand' }}>
+                {data.contratacao}
+              </TipoVaga>
+            )}
+          </Detail>
+        </Details>
+        <View
+          style={{
+            flex: 1,
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
+        >
+          <Modal
+            animationType="slide"
+            transparent={false}
+            visible={modalDetailJob}
+            onRequestClose={() => {
+              setModalDetailJob(!modalDetailJob);
+            }}
+          >
+            <WVDetailtJob data={data} />
+          </Modal>
 
-      <Details>
-        <Detail>
-          <Icon name="user" size={16} color="#333" />
-          <DetailExtra>{data.contratacao}</DetailExtra>
-        </Detail>
-        <Detail>
-          <Icon name="calendar" size={16} color="#333" />
-          <DetailExtra>{data.data_job}</DetailExtra>
-        </Detail>
-      </Details>
+          <Detail>
+            <DataJob style={{ fontFamily: 'Quicksand' }}>
+              {data.data_job}
+            </DataJob>
+          </Detail>
 
-      <Modal
-        animationType="slide"
-        transparent={false}
-        visible={modalDetailJob}
-        onRequestClose={() => {
-          setModalDetailJob(!modalDetailJob);
-        }}
-      >
-        <WVDetailtJob data={data} />
-      </Modal>
-
-      <BtnMd onPress={() => setModalDetailJob(!modalDetailJob)}>
-        <Icon name="eye" color="#333" size={16} />
-        <BtnMdText>Ver detalhes</BtnMdText>
-      </BtnMd>
-    </Container>
+          <BtnMd onPress={() => setModalDetailJob(!modalDetailJob)}>
+            <BtnMdText style={{ fontFamily: 'Quicksand' }}>
+              Ver detalhes da vaga
+            </BtnMdText>
+          </BtnMd>
+        </View>
+      </Container>
+    </View>
   );
 }

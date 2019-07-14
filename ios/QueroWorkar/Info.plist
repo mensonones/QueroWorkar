@@ -71,6 +71,34 @@
 		<string>Octicons.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
+		<string>HelveticaNeueBold.ttf</string>
+		<string>HelveticaNeueMedium.ttf</string>
+		<string>LatoBlack.ttf</string>
+		<string>RobotoBold.ttf</string>
+		<string>RobotoLight.ttf</string>
+		<string>RobotoMedium.ttf</string>
+		<string>RobotoRegular.ttf</string>
+		<string>SFProDisplayBlack.otf</string>
+		<string>SFProDisplayBold.otf</string>
+		<string>SFProDisplayHeavy.otf</string>
+		<string>SFProDisplayLight.otf</string>
+		<string>SFProDisplayMedium.otf</string>
+		<string>SFProDisplayRegular.otf</string>
+		<string>SFProDisplaySemibold.otf</string>
+		<string>SFProDisplayThin.otf</string>
+		<string>SFProDisplayUltralight.otf</string>
+		<string>SFProTextBold.ttf</string>
+		<string>SFProTextRegular.ttf</string>
+		<string>SFProTextSemibold.ttf</string>
+		<string>Quicksand-Bold.ttf</string>
+		<string>Quicksand-Light.ttf</string>
+		<string>Quicksand-Medium.ttf</string>
+		<string>Quicksand-Regular.ttf</string>
+		<string>Karma-Bold.ttf</string>
+		<string>Karma-Light.ttf</string>
+		<string>Karma-Medium.ttf</string>
+		<string>Karma-Regular.ttf</string>
+		<string>Karma-SemiBold.ttf</string>
 	</array>
 </dict>
 </plist>

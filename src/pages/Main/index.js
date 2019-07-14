@@ -25,9 +25,9 @@ export default function Home() {
   if (vagas.length === 0) {
     return (
       <Container>
-        <Title>QueroWorkar</Title>
+        <Title style={{ fontFamily: 'Quicksand' }}>QueroWorkar</Title>
         <ActivityIndicator
-          color="#333"
+          color="#e7eaf6"
           size="large"
           style={{
             flex: 1,
@@ -39,7 +39,7 @@ export default function Home() {
   }
   return (
     <Container>
-      <Title>QueroWorkar</Title>
+      <Title style={{ fontFamily: 'Quicksand' }}>QueroWorkar</Title>
 
       <List
         keyboardShouldPersistTaps="handled"
