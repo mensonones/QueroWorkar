@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ActivityIndicator } from 'react-native';
+import { View, ActivityIndicator, Text, Picker, Alert } from 'react-native';
 
 import Job from '~/components/Job/index';
 
@@ -7,6 +7,36 @@ import { Container, Title, List } from './styles';
 
 export default function Home() {
   const [vagas, setVagas] = useState([]);
+  const [selectValue, setSelectValue] = useState();
+  const [data, setData] = useState([]);
+
+  function filterSelect(value) {
+    if (value === 'Estágio') {
+      //Alert.alert('Estágio');
+      const newData = vagas.filter(item => {
+        const itemData = item.contratacao;
+        const textData = value;
+        return itemData.indexOf(textData) > -1;
+      });
+
+      setData(newData);
+    }
+
+    if (value === 'Emprego') {
+      //Alert.alert('Estágio');
+      const newData = vagas.filter(item => {
+        const itemData = item.contratacao;
+        const textData = value;
+        return itemData.indexOf(textData) > -1;
+      });
+
+      setData(newData);
+    }
+
+    if (value === 'Todos') {
+      setData(vagas);
+    }
+  }
 
   function loadData() {
     try {
@@ -38,18 +68,44 @@ export default function Home() {
     );
   }
   return (
-    <Container>
-      <Title style={{ fontFamily: 'Quicksand' }}>QueroWorkar</Title>
+    <>
+      <View
+        style={{
+          flexDirection: 'row',
+          backgroundColor: '#c7cae4',
+          justifyContent: 'space-between'
+        }}
+      >
+        <Title style={{ fontFamily: 'Quicksand' }}>QueroWorkar</Title>
 
-      <List
-        keyboardShouldPersistTaps="handled"
-        data={vagas}
-        onEndReached={loadData}
-        onEndReachedThreshold={0.1}
-        keyExtractor={item => String(item.title_job)}
-        renderItem={({ item }) => <Job data={item} />}
-      />
-    </Container>
+        <Picker
+          style={{
+            marginTop: 20,
+            width: '35%',
+            color: '#38598b'
+          }}
+          selectedValue={selectValue || 'Todos'}
+          onValueChange={value => {
+            filterSelect(value);
+            setSelectValue(value);
+          }}
+        >
+          <Picker.Item label="Todos" value="Todos" />
+          <Picker.Item label="Estágio" value="Estágio" />
+          <Picker.Item label="Emprego" value="Emprego" />
+        </Picker>
+      </View>
+      <Container>
+        <List
+          keyboardShouldPersistTaps="handled"
+          data={data.length === 0 ? vagas : data}
+          onEndReached={loadData}
+          onEndReachedThreshold={0.1}
+          keyExtractor={item => String(item.title_job)}
+          renderItem={({ item }) => <Job data={item} />}
+        />
+      </Container>
+    </>
   );
 }
 

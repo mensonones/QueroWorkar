@@ -36,6 +36,10 @@ target 'QueroWorkar' do
 
   pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
 
+  pod 'react-native-netinfo', :path => '../node_modules/@react-native-community/netinfo'
+
+  pod 'RNCReactNativeCheckbox', :path => '../node_modules/@react-native-community/checkbox'
+
   target 'QueroWorkarTests' do
     inherit! :search_paths
     # Pods for testing

@@ -9,7 +9,10 @@ import Home from '~/pages/Main';
 const Routes = createAppContainer(
   createBottomTabNavigator({
     Home: {
-      screen: Home
+      screen: Home,  navigationOptions: {
+        gesturesEnabled: false,
+        tabBarVisible: false,
+      }
     }
   })
 );

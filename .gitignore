@@ -25,6 +25,13 @@ project.xcworkspace
 # Android/IntelliJ
 #
 build/
+android/.project
+android/.settings/
+android/app/.classpath
+android/app/.project
+android/app/.settings/
+android/java_pid2142.hprof
+android/java_pid32636.hprof
 .idea
 .gradle
 local.properties

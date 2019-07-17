@@ -14,9 +14,10 @@ export const Container = styled(LinearGradient).attrs({
 `;
 
 export const Title = styled.Text`
-  font-size: 32px;
-  color: #9fa1b6;
+  font-size: 22px;
+  color: #e7eaf6;
   font-weight: bold;
+  margin-top: 30;
   padding: 0 20px;
 `;
 
