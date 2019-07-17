@@ -72,7 +72,7 @@ export default function Home() {
       <View
         style={{
           flexDirection: 'row',
-          backgroundColor: '#c7cae4',
+          backgroundColor: '#576491',
           justifyContent: 'space-between'
         }}
       >
@@ -82,7 +82,7 @@ export default function Home() {
           style={{
             marginTop: 20,
             width: '35%',
-            color: '#38598b'
+            color: '#EBF5FD'
           }}
           selectedValue={selectValue || 'Todos'}
           onValueChange={value => {
@@ -101,7 +101,7 @@ export default function Home() {
           data={data.length === 0 ? vagas : data}
           onEndReached={loadData}
           onEndReachedThreshold={0.1}
-          keyExtractor={item => String(item.title_job)}
+          keyExtractor={item => String(item.id)}
           renderItem={({ item }) => <Job data={item} />}
         />
       </Container>

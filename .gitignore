@@ -32,6 +32,7 @@ android/app/.project
 android/app/.settings/
 android/java_pid2142.hprof
 android/java_pid32636.hprof
+android/app/release/
 .idea
 .gradle
 local.properties

@@ -6,7 +6,7 @@ export const Container = styled.View`
   justify-content: center;
   align-items: center;
   border-radius: 4px;
-  background: #e7eaf6;
+  background: #8992c9;
   box-shadow: 1px 1px 1px #404354;
   margin-bottom: 15px;
   shadow-radius: 1;
@@ -17,14 +17,14 @@ export const TituloJob = styled.Text`
   align-content: center;
   font-size: 22px;
   font-weight: bold;
-  color: #38598b;
+  color: #ffffff;
   text-align: center;
 `;
 
 export const Empresa = styled.Text.attrs({
   numberOfLines: 2
 })`
-  color: #38598b;
+  color: #ffffff;
   font-weight: bold;
   margin-top: 10px;
   font-size: 16px;
@@ -44,35 +44,35 @@ export const Detail = styled.View`
 `;
 
 export const TipoVaga = styled.Text`
-  border: 2px solid #7fbf7f;
+  border: 2px solid #01d38a;
   border-radius: 5px;
   width: 110;
   text-align: center;
-  background-color: #e7eaf6;
+  background-color: #8992c9;
   margin-left: 6px;
   font-weight: bold;
-  color: #7fbf7f;
+  color: #01d38a;
 `;
 
 export const TipoEstagio = styled.Text`
-  border: 2px solid #ffb732;
+  border: 2px solid #efad90;
   border-radius: 5px;
   width: 110;
   text-align: center;
-  background-color: #e7eaf6;
+  background-color: #8992c9;
   margin-left: 6px;
   font-weight: bold;
-  color: #ffb732;
+  color: #efad90;
 `;
 
 export const DataJob = styled.Text`
   margin-top: 15px;
   width: 150;
   text-align: center;
-  background-color: #e7eaf6;
+  background-color: #8992c9;
   margin-left: 6px;
   font-weight: bold;
-  color: #38598b;
+  color: #ffffff;
 `;
 
 export const BtnMd = styled.TouchableOpacity`
@@ -84,6 +84,6 @@ export const BtnMd = styled.TouchableOpacity`
 
 export const BtnMdText = styled.Text`
   font-size: 14px;
-  color: #38598b;
+  color: #ebf5fd;
   margin-left: 5px;
 `;
