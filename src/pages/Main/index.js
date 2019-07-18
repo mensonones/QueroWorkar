@@ -52,61 +52,72 @@ export default function Home() {
     loadData();
   }, []);
 
-  if (vagas.length === 0) {
+  if (vagas.length > 0) {
     return (
-      <Container>
-        <Title style={{ fontFamily: 'Quicksand' }}>QueroWorkar</Title>
-        <ActivityIndicator
-          color="#e7eaf6"
-          size="large"
+      <>
+        <View
           style={{
-            flex: 1,
-            height: 80
-          }}
-        />
-      </Container>
-    );
-  }
-  return (
-    <>
-      <View
-        style={{
-          flexDirection: 'row',
-          backgroundColor: '#576491',
-          justifyContent: 'space-between'
-        }}
-      >
-        <Title style={{ fontFamily: 'Quicksand' }}>QueroWorkar</Title>
-
-        <Picker
-          style={{
-            marginTop: 20,
-            width: '35%',
-            color: '#EBF5FD'
-          }}
-          selectedValue={selectValue || 'Todos'}
-          onValueChange={value => {
-            filterSelect(value);
-            setSelectValue(value);
+            flexDirection: 'row',
+            backgroundColor: '#576491',
+            justifyContent: 'space-between'
           }}
         >
-          <Picker.Item label="Todos" value="Todos" />
-          <Picker.Item label="Estágio" value="Estágio" />
-          <Picker.Item label="Emprego" value="Emprego" />
-        </Picker>
-      </View>
-      <Container>
-        <List
-          keyboardShouldPersistTaps="handled"
-          data={data.length === 0 ? vagas : data}
-          onEndReached={loadData}
-          onEndReachedThreshold={0.1}
-          keyExtractor={item => String(item.id)}
-          renderItem={({ item }) => <Job data={item} />}
-        />
-      </Container>
-    </>
-  );
+          <Title style={{ fontFamily: 'Quicksand' }}>QueroWorkar</Title>
+
+          <Picker
+            style={{
+              marginTop: 20,
+              width: '35%',
+              color: '#EBF5FD'
+            }}
+            selectedValue={selectValue || 'Todos'}
+            onValueChange={value => {
+              filterSelect(value);
+              setSelectValue(value);
+            }}
+          >
+            <Picker.Item label="Todos" value="Todos" />
+            <Picker.Item label="Estágio" value="Estágio" />
+            <Picker.Item label="Emprego" value="Emprego" />
+          </Picker>
+        </View>
+        <Container>
+          <List
+            keyboardShouldPersistTaps="handled"
+            data={data.length === 0 ? vagas : data}
+            onEndReached={loadData}
+            onEndReachedThreshold={0.1}
+            keyExtractor={item => String(item.id)}
+            renderItem={({ item }) => <Job data={item} />}
+          />
+        </Container>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <View
+          style={{
+            flexDirection: 'row',
+            backgroundColor: '#576491',
+            justifyContent: 'space-between'
+          }}
+        >
+          <Title style={{ fontFamily: 'Quicksand' }}>QueroWorkar</Title>
+        </View>
+        <Container>
+          <ActivityIndicator
+            color="#e7eaf6"
+            size="large"
+            style={{
+              flex: 1,
+              height: 80
+            }}
+          />
+        </Container>
+      </>
+    );
+  }
 }
 
 Home.navigationOptions = {

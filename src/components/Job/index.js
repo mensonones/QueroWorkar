@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { Image, Modal, View } from "react-native";
+import React, { useState, useEffect } from 'react';
+import { Image, Modal, View, Share } from 'react-native';
 
-import WVDetailtJob from "~/components/WebViews/JobDetail/index";
+import WVDetailtJob from '~/components/WebViews/JobDetail/index';
 
 import {
   Container,
@@ -14,47 +14,66 @@ import {
   DataJob,
   BtnMd,
   BtnMdText,
-} from "./styles";
+  Local
+} from './styles';
 
 export default function Job({ data }) {
   const [modalDetailJob, setModalDetailJob] = useState(false);
+
+  function ShareMessage() {
+    //Here is the Share API
+    Share.share({
+      message: data.url_job.toString(),
+      title: 'Sharing via react native'
+    })
+      //after successful share return result
+      .then(result => console.log(result))
+      //If any thing goes wrong it comes here
+      .catch(errorMsg => console.log(errorMsg));
+  }
+
   return (
     <View
       style={{
         flex: 1,
-        flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "stretch",
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'stretch'
       }}
     >
       <Container>
         <View
           style={{
             flex: 2,
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center'
           }}
         >
           <Image
             style={{ width: 100, height: 100 }}
             source={{
-              uri: data.url_logo_empresa,
+              uri: data.url_logo_empresa
             }}
           />
-          <TituloJob style={{ fontFamily: "Quicksand" }}>
+          <TituloJob style={{ fontFamily: 'Quicksand' }}>
             {data.title_job}
           </TituloJob>
         </View>
-        <Empresa style={{ fontFamily: "Quicksand" }}>{data.empresa}</Empresa>
+        <Empresa style={{ fontFamily: 'Quicksand' }}>{data.empresa}</Empresa>
         <Details>
           <Detail>
-            {data.contratacao === "Estágio" ? (
-              <TipoEstagio style={{ fontFamily: "Quicksand" }}>
+            <Local style={{ fontFamily: 'Quicksand' }}>{data.cidade}</Local>
+          </Detail>
+        </Details>
+        <Details>
+          <Detail>
+            {data.contratacao === 'Estágio' ? (
+              <TipoEstagio style={{ fontFamily: 'Quicksand' }}>
                 {data.contratacao}
               </TipoEstagio>
             ) : (
-              <TipoVaga style={{ fontFamily: "Quicksand" }}>
+              <TipoVaga style={{ fontFamily: 'Quicksand' }}>
                 {data.contratacao}
               </TipoVaga>
             )}
@@ -63,9 +82,9 @@ export default function Job({ data }) {
         <View
           style={{
             flex: 1,
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center'
           }}
         >
           <Modal
@@ -80,17 +99,23 @@ export default function Job({ data }) {
           </Modal>
 
           <Detail>
-            <DataJob style={{ fontFamily: "Quicksand" }}>
+            <DataJob style={{ fontFamily: 'Quicksand' }}>
               {data.data_job}
             </DataJob>
           </Detail>
 
           <BtnMd onPress={() => setModalDetailJob(!modalDetailJob)}>
-            <BtnMdText style={{ fontFamily: "Quicksand" }}>
-              Ver detalhes da vaga
+            <BtnMdText style={{ fontFamily: 'Quicksand' }}>
+              Detalhes da vaga
             </BtnMdText>
           </BtnMd>
         </View>
+
+        <BtnMd onPress={() => ShareMessage()}>
+          <BtnMdText style={{ fontFamily: 'Quicksand' }}>
+            Compartilhar vaga
+          </BtnMdText>
+        </BtnMd>
       </Container>
     </View>
   );

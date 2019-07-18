@@ -1,4 +1,4 @@
-import styled from 'styled-components/native';
+import styled from "styled-components/native";
 
 export const Container = styled.View`
   width: 100%;
@@ -22,7 +22,18 @@ export const TituloJob = styled.Text`
 `;
 
 export const Empresa = styled.Text.attrs({
-  numberOfLines: 2
+  numberOfLines: 2,
+})`
+  color: #ffffff;
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+`;
+
+export const Local = styled.Text.attrs({
+  numberOfLines: 2,
 })`
   color: #ffffff;
   font-weight: bold;
