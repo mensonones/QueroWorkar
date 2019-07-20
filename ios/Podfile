@@ -40,6 +40,8 @@ target 'QueroWorkar' do
 
   pod 'RNCReactNativeCheckbox', :path => '../node_modules/@react-native-community/checkbox'
 
+  pod 'react-native-onesignal', :path => '../node_modules/react-native-onesignal'
+
   target 'QueroWorkarTests' do
     inherit! :search_paths
     # Pods for testing

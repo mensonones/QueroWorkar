@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { View, ActivityIndicator, Text, Picker, Alert } from 'react-native';
+import { View, ActivityIndicator, Picker, Animated } from 'react-native';
+
+import OneSignal from 'react-native-onesignal';
 
 import Job from '~/components/Job/index';
+
+import ID from '~/util/onesignal';
 
 import { Container, Title, List } from './styles';
 
@@ -12,7 +16,6 @@ export default function Home() {
 
   function filterSelect(value) {
     if (value === 'Estágio') {
-      //Alert.alert('Estágio');
       const newData = vagas.filter(item => {
         const itemData = item.contratacao;
         const textData = value;
@@ -23,7 +26,6 @@ export default function Home() {
     }
 
     if (value === 'Emprego') {
-      //Alert.alert('Estágio');
       const newData = vagas.filter(item => {
         const itemData = item.contratacao;
         const textData = value;
@@ -43,10 +45,22 @@ export default function Home() {
       const response = fetch('https://vagasqw.herokuapp.com/')
         .then(res => res.json())
         .then(dados => setVagas(dados));
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   }
+
+  function receivedPush(push) {}
+
+  function openedPush(push) {}
+
+  function idsPush(push) {}
+
+  useEffect(() => {
+    OneSignal.init(ID);
+    OneSignal.addEventListener('received', receivedPush);
+    OneSignal.addEventListener('opened', openedPush);
+    OneSignal.addEventListener('ids', idsPush);
+    OneSignal.inFocusDisplaying(2);
+  }, []);
 
   useEffect(() => {
     loadData();
@@ -81,16 +95,19 @@ export default function Home() {
             <Picker.Item label="Emprego" value="Emprego" />
           </Picker>
         </View>
-        <Container>
-          <List
-            keyboardShouldPersistTaps="handled"
-            data={data.length === 0 ? vagas : data}
-            onEndReached={loadData}
-            onEndReachedThreshold={0.1}
-            keyExtractor={item => String(item.id)}
-            renderItem={({ item }) => <Job data={item} />}
-          />
-        </Container>
+
+        <Animated.ScrollView>
+          <Container>
+            <List
+              keyboardShouldPersistTaps="handled"
+              data={data.length === 0 ? vagas : data}
+              onEndReached={loadData}
+              onEndReachedThreshold={0.1}
+              keyExtractor={item => String(item.id)}
+              renderItem={({ item }) => <Job data={item} />}
+            />
+          </Container>
+        </Animated.ScrollView>
       </>
     );
   } else {

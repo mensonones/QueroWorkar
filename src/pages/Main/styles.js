@@ -39,6 +39,14 @@ export const Input = styled.TextInput.attrs({
   border: 2px solid ${props => (props.error ? '#FF7272' : '#FFF')};
 `;
 
+export const Submit = styled.TouchableOpacity`
+  background: #1c92d2;
+  margin-left: 10px;
+  justify-content: center;
+  border-radius: 4px;
+  padding: 0 14px;
+`;
+
 export const List = styled.FlatList.attrs({
   contentContainerStyle: { paddingHorizontal: 20 },
   showVerticalScrollIndicator: false

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Image, Modal, View, Share } from 'react-native';
+import { Image, Modal, View, Share, Text } from 'react-native';
 
 import WVDetailtJob from '~/components/WebViews/JobDetail/index';
 
@@ -24,12 +24,12 @@ export default function Job({ data }) {
     //Here is the Share API
     Share.share({
       message: data.url_job.toString(),
-      title: 'Sharing via react native'
+      title: 'Sharing'
     })
       //after successful share return result
-      .then(result => console.log(result))
+      .then()
       //If any thing goes wrong it comes here
-      .catch(errorMsg => console.log(errorMsg));
+      .catch();
   }
 
   return (
@@ -112,8 +112,13 @@ export default function Job({ data }) {
         </View>
 
         <BtnMd onPress={() => ShareMessage()}>
-          <BtnMdText style={{ fontFamily: 'Quicksand' }}>
-            Compartilhar vaga
+          <BtnMdText
+            style={{
+              fontFamily: 'Quicksand',
+              alignContent: 'center'
+            }}
+          >
+            <Text style={{ textAlign: 'center' }}>Compartilhar vaga</Text>
           </BtnMdText>
         </BtnMd>
       </Container>

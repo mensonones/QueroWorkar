@@ -1,4 +1,4 @@
-import styled from "styled-components/native";
+import styled from 'styled-components/native';
 
 export const Container = styled.View`
   width: 100%;
@@ -22,7 +22,7 @@ export const TituloJob = styled.Text`
 `;
 
 export const Empresa = styled.Text.attrs({
-  numberOfLines: 2,
+  numberOfLines: 2
 })`
   color: #ffffff;
   font-weight: bold;
@@ -33,7 +33,7 @@ export const Empresa = styled.Text.attrs({
 `;
 
 export const Local = styled.Text.attrs({
-  numberOfLines: 2,
+  numberOfLines: 2
 })`
   color: #ffffff;
   font-weight: bold;
@@ -88,13 +88,18 @@ export const DataJob = styled.Text`
 
 export const BtnMd = styled.TouchableOpacity`
   width: 150;
-  border-radius: 2px;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
   margin-top: 20px;
   flex-direction: row;
+  border-radius: 2;
+  border-width: 1;
+  text-align: center;
 `;
 
 export const BtnMdText = styled.Text`
+  margin-bottom: 3px;
   font-size: 14px;
   color: #ebf5fd;
-  margin-left: 5px;
+  margin-left: 14px;
 `;

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "373362493359",
+    "firebase_url": "https://queroworkar-fd5c6.firebaseio.com",
+    "project_id": "queroworkar-fd5c6",
+    "storage_bucket": "queroworkar-fd5c6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:373362493359:android:4a1cb8eb2a4f58c0",
+        "android_client_info": {
+          "package_name": "com.queroworkar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "373362493359-rvfuvd7594cjnu1bal5i7orb8c6c3p3a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCw40r2KzAZ2kRXBL4nrTHQ8ryL4Auk_60"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "373362493359-rvfuvd7594cjnu1bal5i7orb8c6c3p3a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
