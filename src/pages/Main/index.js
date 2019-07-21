@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, ActivityIndicator, Picker, Animated } from 'react-native';
 
-import OneSignal from 'react-native-onesignal';
-
 import Job from '~/components/Job/index';
-
-import ID from '~/util/onesignal';
 
 import { Container, Title, List } from './styles';
 
@@ -53,14 +49,6 @@ export default function Home() {
   function openedPush(push) {}
 
   function idsPush(push) {}
-
-  useEffect(() => {
-    OneSignal.init(ID);
-    OneSignal.addEventListener('received', receivedPush);
-    OneSignal.addEventListener('opened', openedPush);
-    OneSignal.addEventListener('ids', idsPush);
-    OneSignal.inFocusDisplaying(2);
-  }, []);
 
   useEffect(() => {
     loadData();
