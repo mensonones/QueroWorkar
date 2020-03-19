@@ -1,4 +1,4 @@
-## QueroWorkar-APP(Em desenvolvimento)
+## QueroWorkar-APP(DESCONTINUADO)
 
 ## Funcionalidades 
 
@@ -6,5 +6,7 @@
 - Filtro por tipo de vaga(Estágio/Emprego)
 - Compartilhamento da vaga
 - Ver detalhamento da vaga(WebView)
+
+Foi feito um projeto com a mesma ideia e mais bonito visualmente. Segue o link do mesmo: https://github.com/robsonsilv4/queroworkar
 
 
